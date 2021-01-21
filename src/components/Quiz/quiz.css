@@ -1,0 +1,24 @@
+/* font-family: 'Poppins', sans-serif; */
+/* font-family: 'Roboto', sans-serif; */
+.wrapQuestions {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: linear-gradient(-90deg, #555858 0%, #565353 100%);
+  padding: 1rem;
+  border: 20px;
+  min-height: 80vh;
+}
+.quizQuestion {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+}
+.quizAnswers li,
+.quizPoint span {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+.quizPoint span {
+}
