@@ -1,0 +1,29 @@
+.addProducts {
+  margin: 0 auto;
+  width: 70%;
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 2020;
+  }
+  label {
+    display: block;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: rgb(243, 81, 17);
+    text-align: left;
+  }
+  .formSelect {
+    width: 100%;
+
+    select {
+      width: 100%;
+      height: 41px;
+      margin: 16px auto;
+    }
+  }
+}

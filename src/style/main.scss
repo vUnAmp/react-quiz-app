@@ -1,0 +1,20 @@
+// Reset, Default  SCSS
+@import '~bootstrap/scss/bootstrap';
+@import './variables.scss';
+@import './basic.scss';
+
+// Shared Component
+
+@import '../components/Shared/FormInput/forminput.scss';
+@import '../components/Shared/Button/button.scss';
+@import '../components//Loading/loading.scss';
+// Components SCSS
+
+@import '../components/Header/header.scss';
+@import '../components/SignIn/signin.scss';
+@import '../components/SignUp/signup.scss';
+@import '../components/AddProduct/addproducts.scss';
+
+// Pages SCSS
+
+@import '../pages/AdminBoard/adminboard.scss';
