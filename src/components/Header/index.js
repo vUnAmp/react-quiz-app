@@ -6,6 +6,7 @@ import { auth } from '../../firebase/utils';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentUser } from '../../redux/User/user.actions';
+import AddQuestion from '../../pages/AddQuestion/addquestion';
 const mapState = ({ user }) => ({
   currentUser: user.currentUser,
 });
@@ -34,7 +35,10 @@ const Header = (props) => {
           >
             Log Out
           </Link>
-          <Link to="/adminboard">Admin Board</Link>
+          {/* <Link to="/adminboard">Admin Board</Link> */}
+          {currentUser.userRoles.includes('admin') ? (
+            <Link to="/addquestion">AddQuestion</Link>
+          ) : null}
         </>
       ) : (
         <>

@@ -19,6 +19,7 @@ import { useDispatch } from 'react-redux';
 import { checkUserSession } from './redux/User/user.actions';
 import AdminBoard from './pages/AdminBoard';
 import QuizPage from './pages/QuizPage';
+import AddQuestion from './pages/AddQuestion/addquestion';
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ function App() {
           <Route path="/quiz" component={QuizPage} />
           <Route path="/registration" component={Registration} />
           <Route path="/adminboard" component={AdminBoard} />
+          <Route path="/addquestion" component={AddQuestion} />
         </Switch>
       </Router>
     </div>
