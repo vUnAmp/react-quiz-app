@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
 import Button from '../Shared/Button';
 import FormInput from '../Shared/FormInput';
 import './addquiz.scss';
+
+import { startAddQuestion } from '../../redux/Quiz/quiz.action';
+
+const mapState = ({ quiz }) => ({
+  addQuiz: quiz.addQuiz,
+});
 
 const AddQuiz = () => {
   const initialValues = {
@@ -13,10 +21,12 @@ const AddQuiz = () => {
     wrong_answer3: '',
   };
   const dataQuestion = [...Object.keys(initialValues)];
-  console.log(dataQuestion);
+
   const [values, setValues] = useState(initialValues);
   const [count, setCount] = useState(0);
+  const { addQuiz } = useSelector(mapState);
   const history = useHistory();
+  const dispatch = useDispatch();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({
@@ -28,14 +38,19 @@ const AddQuiz = () => {
     e.preventDefault();
     // if (count === 3) return;
     setCount(count + 1);
-    console.log(e.target);
-    console.log(values);
   };
-
+  const handleSubmitQuestion = () => {
+    // console.log('hello');
+    dispatch(startAddQuestion({ values, addQuiz: !addQuiz }));
+  };
+  console.log(addQuiz);
+  useEffect(() => {
+    setValues(initialValues);
+    setCount(0);
+  }, [addQuiz]);
   if (history.action === 'POP') {
     return <Redirect to="/" />;
   }
-  console.log(dataQuestion);
   return (
     <div className="container">
       <div className="row">
@@ -55,14 +70,14 @@ const AddQuiz = () => {
           <Button>Add</Button>
         </form>
       ) : (
-        <button>Sure Add Question?</button>
+        <button onClick={handleSubmitQuestion}>Sure Add Question?</button>
       )}
 
       <div>
         {dataQuestion.map((item, i) => {
           return (
             <div key={i} className="row checkQuestion">
-              <span className="keyQuiz">{item}</span>
+              <span className="keyQuiz">{item} :</span>
               <span className="valueQuiz">{values[item]}</span>
             </div>
           );

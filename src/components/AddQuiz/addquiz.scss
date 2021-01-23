@@ -3,3 +3,14 @@
     width: 100%;
   }
 }
+.checkQuestion {
+  text-align: left;
+  .keyQuiz {
+    margin-right: 1rem;
+    padding: 0.2rem;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}
